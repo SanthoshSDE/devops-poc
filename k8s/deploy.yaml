@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-demo
+  labels:
+    app: eranodejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eranodejs
+  template:
+    metadata:
+      labels:
+        app: eranodejs
+    spec:
+      containers:
+      - name: nodejs-demo
+        image: santhoshera/nodejs-docker-demo
+        ports:
+        - containerPort: 8000
+      imagePullSecrets:
+      - name: dockercred

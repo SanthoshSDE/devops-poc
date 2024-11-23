@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodejs-demo
+spec:
+  containers:
+  - name: nodejs-demo
+    image: santhoshera/nodejs-docker-demo
+    ports:
+    - containerPort: 8000
+  imagePullSecrets:
+  - name: dockercred
